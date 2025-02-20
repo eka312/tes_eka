@@ -34,8 +34,7 @@ class produkController extends Controller
             'kode_produk' => $request->kode_produk,
             'nama_produk' => $request->nama_produk,
             'deskripsi' => $request->deskripsi,
-            'harga_per_biji' => $request->harga_per_biji,
-            'harga_per_pak' => $request->harga_per_pak,
+            'harga' => $request->harga,
             'stok' => $request->stok,
             'tanggal_kadaluarsa' => $request->tanggal_kadaluarsa,
         ]);
@@ -70,8 +69,7 @@ class produkController extends Controller
             'kode_produk' => $request->kode_produk,
             'nama_produk' => $request->nama_produk,
             'deskripsi' => $request->deskripsi,
-            'harga_per_biji' => $request->harga_per_biji,
-            'harga_per_pak' => $request->harga_per_pak,
+            'harga' => $request->harga,
             'stok' => $request->stok,
             'tanggal_kadaluarsa' => $request->tanggal_kadaluarsa,
         ]);

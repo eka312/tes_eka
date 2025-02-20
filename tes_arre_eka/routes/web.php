@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\produkController;
+use App\Http\Controllers\TemplateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +16,14 @@ use App\Http\Controllers\produkController;
 */
 
 Route::get('/', function () {
-    return view('master');
+    return view('welcome');
 });
 
-Route::get('/beranda', function () {
-    return view('beranda');
-});
+// routing halaman master
+Route::get('/master', [TemplateController::class, 'master']);
+
+// routing halaman beranda
+Route::get('/beranda', [TemplateController::class, 'index']);
 
 // routing halaman data_produk
 Route::get('/data_produk', [produkController::class, 'index']);

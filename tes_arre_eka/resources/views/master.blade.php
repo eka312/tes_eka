@@ -6,10 +6,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Beranda</title>
+        <title>@yield('judul_halaman')</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+        <!-- Simple DataTables -->
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+
+        <!-- SB Admin Styles -->
         <link href="startbootstrap-sb-admin-master/dist/css/styles.css" rel="stylesheet" />
+
+        <!-- FontAwesome (untuk ikon) -->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
 
         <!-- bagian informasi produk -->
         <!-- Favicon-->
@@ -22,7 +32,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3 text-capitalize fw-bold" href="/"><img src="startbootstrap-sb-admin-master/dist/assets/img/snacks.png"> snacks nyam<sup>2</sup></a>
+            <a class="navbar-brand ps-3 text-capitalize fw-bold" href="/beranda"><img src="startbootstrap-sb-admin-master/dist/assets/img/snacks.png"> snacks nyam<sup>2</sup></a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             
@@ -41,7 +51,7 @@
                 <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
                     <div class="sb-sidenav-menu ">
                         <div class="nav text-capitalize">
-                            <a class="nav-link " href="/">
+                            <a class="nav-link " href="/beranda">
                                 <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                                 Beranda
                             </a>
@@ -56,7 +66,8 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4 text-capitalize">
-                        
+                        <!-- bagian konten -->
+	                    @yield('konten')
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto text-capitalize">
@@ -68,11 +79,22 @@
                 </footer>
             </div>
         </div>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="startbootstrap-sb-admin-master/dist/js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="startbootstrap-sb-admin-master/dist/assets/demo/chart-area-demo.js"></script>
         <script src="startbootstrap-sb-admin-master/dist/assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="startbootstrap-sb-admin-master/dist/js/datatables-simple-demo.js"></script> -->
+
+        <!-- Bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+        <!-- Script utama aplikasi -->
+        <script src="startbootstrap-sb-admin-master/dist/js/scripts.js"></script>
+
+        <!-- DataTables -->
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="startbootstrap-sb-admin-master/dist/js/datatables-simple-demo.js"></script>
 
