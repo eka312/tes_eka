@@ -15,7 +15,7 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
 
         <!-- SB Admin Styles -->
-        <link href="startbootstrap-sb-admin-master/dist/css/styles.css" rel="stylesheet" />
+        <link href="template-admin/dist/css/styles.css" rel="stylesheet" />
 
         <!-- FontAwesome (untuk ikon) -->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -23,16 +23,16 @@
 
         <!-- bagian informasi produk -->
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="startbootstrap-shop-homepage-master/src/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="template-shop/src/assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="startbootstrap-shop-homepage-master/dist/css/styles.css" rel="stylesheet" />
+        <link href="template-shop/dist/css/styles.css" rel="stylesheet" />
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3 text-capitalize fw-bold" href="/beranda"><img src="startbootstrap-sb-admin-master/dist/assets/img/snacks.png"> snacks nyam<sup>2</sup></a>
+            <a class="navbar-brand ps-3 text-capitalize fw-bold" href="/beranda"><img src="template-admin/dist/assets/img/snacks.png"> snacks nyam<sup>2</sup></a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             
@@ -79,27 +79,19 @@
                 </footer>
             </div>
         </div>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="startbootstrap-sb-admin-master/dist/js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="startbootstrap-sb-admin-master/dist/assets/demo/chart-area-demo.js"></script>
-        <script src="startbootstrap-sb-admin-master/dist/assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="startbootstrap-sb-admin-master/dist/js/datatables-simple-demo.js"></script> -->
 
         <!-- Bootstrap -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
         <!-- Script utama aplikasi -->
-        <script src="startbootstrap-sb-admin-master/dist/js/scripts.js"></script>
+        <script src="template-admin/dist/js/scripts.js"></script>
 
         <!-- DataTables -->
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="startbootstrap-sb-admin-master/dist/js/datatables-simple-demo.js"></script>
+        <script src="template-admin/dist/js/datatables-simple-demo.js"></script>
 
         <!-- untuk fungsi section -->
         <!-- Core theme JS-->
-        <script src="startbootstrap-shop-homepage-master/src/js/scripts.js"></script>
+        <script src="template-shop/src/js/scripts.js"></script>
     </body>
 </html>

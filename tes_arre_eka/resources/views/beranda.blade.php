@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-5">
-                <img src="startbootstrap-sb-admin-master/dist/assets/img/At the office-pana.svg">
+                <img src="template-admin/dist/assets/img/At the office-pana.svg">
             </div>
             <div class="col-7">
                 <h1 class="fw-bold">Aplikasi Pengelolaan Produk Aneka Snack</h1>
@@ -28,7 +28,7 @@
                     <div class="col mb-5">
                         <div class="card h-70 shadow">
                             <!-- Product image-->
-                            <img class="card-img-top" src="startbootstrap-sb-admin-master/dist/assets/img/pocky.jpg" alt="pocky" />
+                            <img class="card-img-top" src="template-admin/dist/assets/img/pocky.jpg" alt="pocky" />
                             <!-- Product details-->
                             <div class="card-body">
                                 <div class="">
@@ -46,7 +46,7 @@
                     <div class="col mb-5">
                         <div class="card h-70 shadow">
                             <!-- Product image-->
-                            <img class="card-img-top" src="startbootstrap-sb-admin-master/dist/assets/img/basreng_kering.jpg" alt="basreng kering" />
+                            <img class="card-img-top" src="template-admin/dist/assets/img/basreng_kering.jpg" alt="basreng kering" />
                             <!-- Product details-->
                             <div class="card-body">
                                 <div class="">
@@ -64,7 +64,7 @@
                     <div class="col mb-5">
                         <div class="card h-70 shadow">
                             <!-- Product image-->
-                            <img class="card-img-top" src="startbootstrap-sb-admin-master/dist/assets/img/chitato.jpg" alt="chitato" />
+                            <img class="card-img-top" src="template-admin/dist/assets/img/chitato.jpg" alt="chitato" />
                             <!-- Product details-->
                             <div class="card-body">
                                 <div class="">
@@ -82,7 +82,7 @@
                     <div class="col mb-5">
                         <div class="card h-70 shadow" >
                             <!-- Product image-->
-                            <img class="card-img-top" style="height:200px" src="startbootstrap-sb-admin-master/dist/assets/img/waffle.jpg" alt="dilan waffle" />
+                            <img class="card-img-top" style="height:200px" src="template-admin/dist/assets/img/waffle.jpg" alt="dilan waffle" />
                             <!-- Product details-->
                             <div class="card-body">
                                 <div class="">
@@ -100,7 +100,7 @@
                     <div class="col mb-5">
                         <div class="card h-70 shadow">
                             <!-- Product image-->
-                            <img class="card-img-top" src="startbootstrap-sb-admin-master/dist/assets/img/gery.jpg" alt="gery" />
+                            <img class="card-img-top" src="template-admin/dist/assets/img/gery.jpg" alt="gery" />
                             <!-- Product details-->
                             <div class="card-body">
                                 <div class="">
@@ -118,7 +118,7 @@
                     <div class="col mb-5">
                         <div class="card h-70 shadow">
                             <!-- Product image-->
-                            <img class="card-img-top"  src="startbootstrap-sb-admin-master/dist/assets/img/dairy_milk.jpg" alt="dairy_milk" />
+                            <img class="card-img-top"  src="template-admin/dist/assets/img/dairy_milk.jpg" alt="dairy_milk" />
                             <!-- Product details-->
                             <div class="card-body">
                                 <div class="">
@@ -136,7 +136,7 @@
                     <div class="col mb-5">
                         <div class="card h-70 shadow">
                             <!-- Product image-->
-                            <img class="card-img-top" src="startbootstrap-sb-admin-master/dist/assets/img/biskuat_bolu.jpg" alt="biskuat bolu" />
+                            <img class="card-img-top" src="template-admin/dist/assets/img/biskuat_bolu.jpg" alt="biskuat bolu" />
                             <!-- Product details-->
                             <div class="card-body">
                                 <div class="">
@@ -154,7 +154,7 @@
                     <div class="col mb-5">
                         <div class="card h-70 shadow">
                             <!-- Product image-->
-                            <img class="card-img-top" src="startbootstrap-sb-admin-master/dist/assets/img/tango.jpg" alt="tango" />
+                            <img class="card-img-top" src="template-admin/dist/assets/img/tango.jpg" alt="tango" />
                             <!-- Product details-->
                             <div class="card-body">
                                 <div class="">

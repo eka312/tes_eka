@@ -15,4 +15,9 @@ class TemplateController extends Controller
     {
        return view('/beranda');
     }
+
+    public function bg_login()
+    {
+       return view('/bg_login');
+    }
 }

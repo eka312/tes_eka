@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\penggunaController;
 use App\Http\Controllers\produkController;
 use App\Http\Controllers\TemplateController;
 
@@ -19,7 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// routing halaman master
+// routing halaman konten login, register, password
+Route::get('/login', [penggunaController::class, 'index']);
+
+// routing halaman templating bg_login, register, password
+Route::get('/bg_login', [TemplateController::class, 'bg_login']);
+
+// routing halaman master untuk beranda,data_produk,tambah,ubah
 Route::get('/master', [TemplateController::class, 'master']);
 
 // routing halaman beranda
