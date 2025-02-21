@@ -20,28 +20,34 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// routing halaman konten login, register, password
+// routing halaman konten login,
 Route::get('/login', [penggunaController::class, 'index']);
+
+// routing halaman konten  register
+Route::get('/register', [penggunaController::class, 'register']);
+
+// routing halaman konten  password
+Route::get('/password', [penggunaController::class, 'password']);
 
 // routing halaman templating bg_login, register, password
 Route::get('/bg_login', [TemplateController::class, 'bg_login']);
 
-// routing halaman master untuk beranda,data_produk,tambah,ubah
+// routing halaman master templating untuk beranda,data_produk,tambah,ubah
 Route::get('/master', [TemplateController::class, 'master']);
 
-// routing halaman beranda
+// routing halaman konten beranda
 Route::get('/beranda', [TemplateController::class, 'index']);
 
-// routing halaman data_produk
+// routing halaman konten  data_produk
 Route::get('/data_produk', [produkController::class, 'index']);
 
-// routing halaman tambah_produk
+// routing halaman konten  tambah_produk
 Route::get('/tambah_produk', [produkController::class, 'create']);
 Route::post('/tambah_produk', [produkController::class, 'store']);
 // routing halaman hapus data produk
 Route::get('/hapus_produk/{id}', [produkController::class, 'destroy']);
 
-// routing halaman edit data produk
+// routing halaman konten  edit data produk
 Route::get('/ubah_produk/{id}', [produkController::class, 'edit']);
 Route::post('/ubah_produk/{id}', [produkController::class, 'update']);
 
