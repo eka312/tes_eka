@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 // routing halaman konten login,
 Route::get('/login', [penggunaController::class, 'index']);
+Route::post('/login', [penggunaController::class, 'login']);
 
 // routing halaman konten  register
 Route::get('/register', [penggunaController::class, 'register']);
@@ -51,5 +52,7 @@ Route::get('/hapus_produk/{id}', [produkController::class, 'destroy']);
 Route::get('/ubah_produk/{id}', [produkController::class, 'edit']);
 Route::post('/ubah_produk/{id}', [produkController::class, 'update']);
 
-
+// Route::controller(produkController::class)->prefix('produk_crud')->group(function(){
+//     Route::get('','master');->name('produk_crud')
+// });
 

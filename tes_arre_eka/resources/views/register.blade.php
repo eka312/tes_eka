@@ -40,12 +40,12 @@
                     </div>
                 </div>
                 <div class="mt-4 mb-0">
-                    <div class="d-grid"><a class="btn btn-primary btn-block" href="login.html">Buat Akun</a></div>
+                    <div class="d-grid"><a class="btn btn-primary btn-block" href="/login">Buat Akun</a></div>
                 </div>
             </form>
         </div>
         <div class="card-footer text-center py-3">
-            <div class="small"><a href="login.html">Sudah punya akun? Masuk di sini.</a></div>
+            <div class="small"><a href="/login">Sudah punya akun? Masuk di sini.</a></div>
         </div>
     </div>
 @endsection
