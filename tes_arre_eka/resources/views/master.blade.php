@@ -41,7 +41,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Logout</button></li>
                     </ul>
                 </li>
             </ul>
@@ -80,6 +80,28 @@
             </div>
         </div>
 
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Logout</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Apakah anda yakin ingin logout dari aplikasi ini?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <form action="/logout" method="post">
+                        @csrf
+                        <input type="submit" class="btn btn-danger" value="Logout">
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+
         <!-- Bootstrap -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
@@ -93,5 +115,7 @@
         <!-- untuk fungsi section -->
         <!-- Core theme JS-->
         <script src="template-shop/src/js/scripts.js"></script>
+
+        
     </body>
 </html>

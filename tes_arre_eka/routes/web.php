@@ -20,9 +20,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// routing halaman konten login,
-Route::get('/login', [penggunaController::class, 'index']);
-Route::post('/login', [penggunaController::class, 'login']);
+//->middleware('guest') untuk membuat fungsi masuk dan keluar sekali
+
+// routing halaman login
+Route::get('/login', [penggunaController::class, 'index'])->name('login');
+Route::post('/login', [penggunaController::class, 'authenticate'])->name('login');
+
+// routing halaman logout
+Route::post('/logout', function () {
+    auth()->logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+
+    return redirect('/login');
+})->name('logout');
+
+// Route::post('/logout', function () {
+//     auth()->logout();
+//     request()->session()->invalidate();
+//     request()->session()->regenerateToken();
+
+//     return redirect('/');
+// })->name('logout')->middleware('auth');
+// Route::view('/home', 'home')->name('home')->middleware('auth');
 
 // routing halaman master templating untuk beranda,data_produk,tambah,ubah
 Route::get('/master', [TemplateController::class, 'master']);
@@ -43,7 +63,5 @@ Route::get('/hapus_produk/{id}', [produkController::class, 'destroy']);
 Route::get('/ubah_produk/{id}', [produkController::class, 'edit']);
 Route::post('/ubah_produk/{id}', [produkController::class, 'update']);
 
-// Route::controller(produkController::class)->prefix('produk_crud')->group(function(){
-//     Route::get('','master');->name('produk_crud')
-// });
+
 

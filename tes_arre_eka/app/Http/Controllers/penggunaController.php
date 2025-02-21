@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+
 
 class penggunaController extends Controller
 {
@@ -12,17 +16,27 @@ class penggunaController extends Controller
      */
     public function index()
     {
-       return view('/login');
+        return view('/login');
     }
 
-    
-    public function login(Request $request)
+    public function authenticate(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email|max:50',
-            'password' => 'required|max:50',
+        $credentials = $request->validate([
+            'email' => ['required', 'string', 'email'],
+            'password' => ['required', 'string'],
         ]);
-        
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect('/beranda');
+        };
+
+        return back()->withErrors([
+            'email' => 'Kredensial yang diberikan tidak cocok dengan data kami.',
+        ])->onlyInput('email');
     }
+    
+    
 
 }
