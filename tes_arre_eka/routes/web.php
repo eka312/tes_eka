@@ -24,15 +24,6 @@ Route::get('/', function () {
 Route::get('/login', [penggunaController::class, 'index']);
 Route::post('/login', [penggunaController::class, 'login']);
 
-// routing halaman konten  register
-Route::get('/register', [penggunaController::class, 'register']);
-
-// routing halaman konten  password
-Route::get('/password', [penggunaController::class, 'password']);
-
-// routing halaman templating bg_login, register, password
-Route::get('/bg_login', [TemplateController::class, 'bg_login']);
-
 // routing halaman master templating untuk beranda,data_produk,tambah,ubah
 Route::get('/master', [TemplateController::class, 'master']);
 
