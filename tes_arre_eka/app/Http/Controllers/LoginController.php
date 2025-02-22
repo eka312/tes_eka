@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 
-class penggunaController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,7 +29,7 @@ class penggunaController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/beranda');
+            return redirect('/');
         };
 
         return back()->withErrors([

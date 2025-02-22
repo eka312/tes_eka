@@ -6,7 +6,7 @@
     <h1 class="mt-4">ubah data produk</h1>
     <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/beranda">beranda</a></li>
+            <li class="breadcrumb-item"><a href="/">beranda</a></li>
             <li class="breadcrumb-item"><a href="/data_produk">data produk</a></li>
             <li class="breadcrumb-item active" aria-current="page">ubah</li>
         </ol>
@@ -15,7 +15,7 @@
     <div class="card mb-4">
         <div class="card-header bg-primary text-light">
             <i class="fas fa-table me-1"></i>
-            ubah daftar data produk
+            ubah daftar data produkNYA
         </div>
         <div class="card-body text-capitalize">
             <form action="/ubah_produk/{{$produk->id_produk}}" method="post" >

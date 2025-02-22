@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\penggunaController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\produkController;
 use App\Http\Controllers\TemplateController;
 
@@ -16,15 +17,17 @@ use App\Http\Controllers\TemplateController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 //->middleware('guest') untuk membuat fungsi masuk dan keluar sekali
 
+// routing halaman register
+Route::get('/register', [RegisterController::class, 'create'])->name('register.form');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.submit');
+
 // routing halaman login
-Route::get('/login', [penggunaController::class, 'index'])->name('login');
-Route::post('/login', [penggunaController::class, 'authenticate'])->name('login');
+Route::get('/login', [LoginController::class, 'index'])->name('login.form');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login.submit');
 
 // routing halaman logout
 Route::post('/logout', function () {
@@ -44,11 +47,14 @@ Route::post('/logout', function () {
 // })->name('logout')->middleware('auth');
 // Route::view('/home', 'home')->name('home')->middleware('auth');
 
+// routing halaman templating_login master templating untuk login,register
+Route::get('/templating_login', [TemplateController::class, 'templating_login']);
+
 // routing halaman master templating untuk beranda,data_produk,tambah,ubah
 Route::get('/master', [TemplateController::class, 'master']);
 
 // routing halaman konten beranda
-Route::get('/beranda', [TemplateController::class, 'index']);
+Route::get('/', [TemplateController::class, 'index']);
 
 // routing halaman konten  data_produk
 Route::get('/data_produk', [produkController::class, 'index']);

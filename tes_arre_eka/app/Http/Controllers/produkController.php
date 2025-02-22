@@ -22,7 +22,7 @@ class produkController extends Controller
      */
     public function create()
     {
-        return view('/tambah_produk');
+        return view('tambah_produk');
     }
 
     /**
@@ -56,7 +56,7 @@ class produkController extends Controller
     {
          // untuk mengambil data produk berdasarkan kolom id_produk
          $produk = produk::where('id_produk', $id)->first();
-         return view('/ubah_produk',['produk' => $produk]);
+         return view('ubah_produk',['produk' => $produk]);
     }
 
     /**

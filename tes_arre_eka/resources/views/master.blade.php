@@ -15,7 +15,7 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
 
         <!-- SB Admin Styles -->
-        <link href="template-admin/dist/css/styles.css" rel="stylesheet" />
+        <link href="{{asset('template-admin/dist/css/styles.css')}}" rel="stylesheet" />
 
         <!-- FontAwesome (untuk ikon) -->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -23,16 +23,16 @@
 
         <!-- bagian informasi produk -->
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="template-shop/src/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="{{asset('template-shop/src/assets/favicon.ico')}}" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="template-shop/dist/css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="{{ asset('template-shop/dist/css/styles.css') }}">
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3 text-capitalize fw-bold" href="/beranda"><img src="template-admin/dist/assets/img/snacks.png"> snacks nyam<sup>2</sup></a>
+            <a class="navbar-brand ps-3 text-capitalize fw-bold" href="/"><img src="{{asset('template-admin/dist/assets/img/snacks.png')}}"> snacks nyam<sup>2</sup></a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             
@@ -51,7 +51,7 @@
                 <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
                     <div class="sb-sidenav-menu ">
                         <div class="nav text-capitalize">
-                            <a class="nav-link " href="/beranda">
+                            <a class="nav-link " href="/">
                                 <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                                 Beranda
                             </a>
@@ -106,15 +106,15 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
         <!-- Script utama aplikasi -->
-        <script src="template-admin/dist/js/scripts.js"></script>
+        <script src="{{ asset('template-admin/dist/js/scripts.js') }}"></script>
 
         <!-- DataTables -->
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="template-admin/dist/js/datatables-simple-demo.js"></script>
+        <script src="{{asset('template-admin/dist/js/datatables-simple-demo.js')}}"></script>
 
         <!-- untuk fungsi section -->
         <!-- Core theme JS-->
-        <script src="template-shop/src/js/scripts.js"></script>
+        <script src="{{asset('template-shop/src/js/scripts.js')}}"></script>
 
         
     </body>

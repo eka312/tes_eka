@@ -8,12 +8,17 @@ class TemplateController extends Controller
 {
     public function master()
     {
-       return view('/master');
+       return view('master');
     }
 
     public function index()
     {
-       return view('/beranda');
+       return view('beranda');
+    }
+
+    public function templating_login()
+    {
+       return view('templating_login');
     }
 
 }
