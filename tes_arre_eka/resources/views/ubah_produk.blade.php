@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('judul_halaman', 'ubah Data Produk | Aplikasi Pengelolaan Produk')
+@section('judul_halaman', 'ubah Data Produk | Aplikasi Pengelolaan Data Produk')
 
 @section('konten')
     <h1 class="mt-4">ubah data produk</h1>
@@ -15,7 +15,7 @@
     <div class="card mb-4">
         <div class="card-header bg-primary text-light">
             <i class="fas fa-table me-1"></i>
-            ubah daftar data produkNYA
+            ubah daftar data produk
         </div>
         <div class="card-body text-capitalize">
             <form action="/ubah_produk/{{$produk->id_produk}}" method="post" >

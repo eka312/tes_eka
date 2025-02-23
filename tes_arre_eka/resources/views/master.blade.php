@@ -23,7 +23,7 @@
 
         <!-- bagian informasi produk -->
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{{asset('template-shop/src/assets/favicon.ico')}}" />
+        <link rel="icon" type="image/x-icon" href="{{asset('template-admin/dist/assets/img/snacks.png')}}" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -41,10 +41,23 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Logout</button></li>
+                        @guest
+                            <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
+                            <li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
+                        @else
+                            <li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+                            </li>
+                        @endguest
                     </ul>
                 </li>
             </ul>
+            
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
@@ -55,16 +68,32 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                                 Beranda
                             </a>
-                            <a class="nav-link" href="/data_produk">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                data produk
-                            </a>
+                            @auth
+                                <a class="nav-link" href="/data_produk">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                    data produk
+                                </a>
+                            @endauth
                         </div>
                     </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
                 <main>
+                    @auth
+                        <div class="alert alert-warning rounded-0 d-flex" role="alert">
+                            <span class="w-100">
+                                Jika anda ingin keluar dari aplikasi ini silahkan klik <a href="{{ route('logout') }}" class="alert-link">logout</a> atau klik icon <strong>person</strong> di pojok kanan atas.
+                            </span>
+                            <button type="button" class="btn-close flex-shrink-1" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endauth
+                    @guest
+                        <div class="alert alert-warning rounded-0" role="alert">
+                            Anda harus <a href="{{ route('login') }}" class="alert-link">login</a> atau <a href="{{ route('register') }}" class="alert-link">register</a> terlebih dahulu untuk mengakses data produk.
+                        </div>
+                    @endguest
+                    
                     <div class="container-fluid px-4 text-capitalize">
                         <!-- bagian konten -->
 	                    @yield('konten')

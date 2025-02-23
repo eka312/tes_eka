@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('judul_halaman', 'Tambah Data Produk | Aplikasi Pengelolaan Produk')
+@section('judul_halaman', 'Tambah Data Produk | Aplikasi Pengelolaan Data Produk')
 
 @section('konten')
     <h1 class="mt-4">tambah data produk</h1>

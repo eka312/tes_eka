@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('judul_halaman', 'Beranda | Aplikasi Pengelolaan Produk')
+@section('judul_halaman', 'Beranda | Aplikasi Pengelolaan Data Produk')
 
 @section('konten')
     <h1 class="mt-4">Beranda</h1>
@@ -13,7 +13,7 @@
                 <img src="template-admin/dist/assets/img/At the office-pana.svg">
             </div>
             <div class="col-7">
-                <h1 class="fw-bold">Aplikasi Pengelolaan Produk Aneka Snack</h1>
+                <h1 class="fw-bold">Aplikasi Pengelolaan Data Produk Aneka Snack</h1>
                 <p class="text-secondary">
                     Aplikasi ini memungkinkan Anda untuk mencatat data produk, termasuk kode 
                     produk, nama, deskripsi produk, jumlah stok, tanggal kedaluwarsa, serta harga.
@@ -22,7 +22,7 @@
         </div>
         <!-- Section-->
         <section class="py-5 mt-4">
-            <h2 class="fw-bold text-center"> aneka snack</h2>
+            <h2 class="fw-bold text-center"> Sekilas Mengenai Data Produk </h2>
             <div class="container px-lg-5 mt-4">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <div class="col mb-5">

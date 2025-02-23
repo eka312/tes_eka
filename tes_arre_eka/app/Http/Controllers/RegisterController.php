@@ -31,7 +31,8 @@ class RegisterController extends Controller
 
         if (Auth::attempt(['email' => $user->email, 'password' => $request->password])) {
             $request->session()->regenerate();
-            return redirect('/login')->with('success', 'Registrasi berhasil! Selamat datang.');
+            return redirect()->route('login.form')->with('success', 'Registrasi berhasil! Silakan login.');
+
         }
         
     }
