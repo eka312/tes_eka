@@ -30,7 +30,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="password">
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Masukkan password minimal 8 karakter">
                     @error('password')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -40,7 +40,7 @@
                 <div class="mb-3">
                     <label for="password_confirmation" class="form-label">Password Confirmation</label>
                     <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation" name="password_confirmation"
-                        placeholder="Masukkan password minimal 8 karakter">
+                    placeholder="Masukkan password minimal 8 karakter">
                     @error('password_confirmation')
                     <div class="invalid-feedback">
                         {{ $message }}
