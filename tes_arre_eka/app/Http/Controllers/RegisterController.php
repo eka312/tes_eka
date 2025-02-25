@@ -11,7 +11,7 @@ class RegisterController extends Controller
 {
     public function create()
     {
-        return view('/register');
+        return view('auth.register');
     }
 
     public function store(Request $request)
@@ -31,7 +31,7 @@ class RegisterController extends Controller
 
         if (Auth::attempt(['email' => $user->email, 'password' => $request->password])) {
             $request->session()->regenerate();
-            return redirect()->route('login.form')->with('success', 'Registrasi berhasil! Silakan login.');
+            return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login.');
 
         }
         

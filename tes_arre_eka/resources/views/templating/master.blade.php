@@ -23,7 +23,7 @@
 
         <!-- bagian informasi produk -->
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{{asset('template-admin/dist/assets/img/snacks.png')}}" />
+        <link rel="icon" type="image/x-icon" href="{{asset('template-admin/dist/assets/img/laptop.png')}}" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -32,7 +32,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3 text-capitalize fw-bold" href="/"><img src="{{asset('template-admin/dist/assets/img/snacks.png')}}"> snacks nyam<sup>2</sup></a>
+            <a class="navbar-brand ps-3 text-capitalize fw-bold" href="/"><img src="{{asset('template-admin/dist/assets/img/laptop.png')}}"> DigiStore<sup>manager</sup></a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             
@@ -73,7 +73,24 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                     data produk
                                 </a>
+                                <a class="nav-link" href="/data_suplayer">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
+                                    data suplayer
+                                </a>
+                                <a class="nav-link" href="/data_laptop">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-laptop"></i></div>
+                                    data laptop
+                                </a>
+                                <a class="nav-link" href="/data_pembeli">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                                    data pembeli
+                                </a>
+                                <a class="nav-link" href="/data_transaksi">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-receipt"></i></div>
+                                    data transaksi
+                                </a>
                             @endauth
+
                         </div>
                     </div>
                 </nav>
@@ -102,7 +119,7 @@
                 <footer class="py-4 bg-light mt-auto text-capitalize">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; snacks nyam<sup>2</sup> 2025</div>
+                            <div class="text-muted">Copyright &copy; DigiStore Manager 2025</div>
                         </div>
                     </div>
                 </footer>
@@ -122,7 +139,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <form action="/logout" method="post">
+                    <form action="{{ route('logout') }}" method="post">
                         @csrf
                         <input type="submit" class="btn btn-danger" value="Logout">
                     </form>

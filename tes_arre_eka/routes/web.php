@@ -4,8 +4,12 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\produkController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\suplayerController;
+use App\Http\Controllers\laptopController;
+use App\Http\Controllers\PembeliController;
+use App\Http\Controllers\TransaksiController;
 
 
 /*
@@ -18,50 +22,6 @@ use App\Http\Controllers\TemplateController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-
-
-//->middleware('guest') untuk membuat fungsi masuk dan keluar sekali
-
-//routing halaman register
-// Route::get('/register', [RegisterController::class, 'create'])->name('register.form');
-// Route::post('/register', [RegisterController::class, 'store'])->name('register.submit');
-
-// routing halaman login
-// Route::get('/login', [LoginController::class, 'index'])->name('login.form');
-// Route::post('/login', [LoginController::class, 'authenticate'])->name('login.submit');
-
-// routing halaman logout
-// Route::post('/logout', function () {
-//     auth()->logout();
-//     request()->session()->invalidate();
-//     request()->session()->regenerateToken();
-
-//     return redirect('/login');
-// })->name('logout');
-
-
-// routing halaman templating_login master templating untuk login,register
-// Route::get('/templating_login', [TemplateController::class, 'templating_login']);
-
-// routing halaman master templating untuk beranda,data_produk,tambah,ubah
-// Route::get('/master', [TemplateController::class, 'master']);
-
-// routing halaman konten beranda
-// Route::get('/', [TemplateController::class, 'index'])->middleware('auth');
-
-// routing halaman konten  data_produk
-// Route::get('/data_produk', [produkController::class, 'index']);
-
-// routing halaman konten  tambah_produk
-// Route::get('/tambah_produk', [produkController::class, 'create']);
-// Route::post('/tambah_produk', [produkController::class, 'store']);
-// routing halaman hapus data produk
-// Route::get('/hapus_produk/{id}', [produkController::class, 'destroy']);
-
-// routing halaman konten  edit data produk
-// Route::get('/ubah_produk/{id}', [produkController::class, 'edit']);
-// Route::post('/ubah_produk/{id}', [produkController::class, 'update']);
 
 
 
@@ -78,29 +38,102 @@ Route::post('/logout', function () {
     auth()->logout();
     request()->session()->invalidate();
     request()->session()->regenerateToken();
-    return redirect('/login');
+    return redirect('/');
 })->name('logout')->middleware('auth');
 
 
-// Routing halaman templating_login (Master Template untuk login/register)
-Route::get('/templating_login', [TemplateController::class, 'templating_login']);
+ 
+Route::controller(TemplateController::class)->group(function () {
+    // Routing halaman templating_login (Master Template untuk login/register)
+    Route::get('/templating_login', 'templating_login');
+    // Routing halaman master template
+    Route::get('/master', 'master');
+    // Routing halaman beranda
+    Route::get('/', 'index');
+});
 
-// Routing halaman master template
-Route::get('/master', [TemplateController::class, 'master']);
 
-// Routing halaman beranda (Hanya bisa diakses jika login)
-Route::get('/', [TemplateController::class, 'index']);
+Route::controller(ProdukController::class)->group(function () {
+    // Routing halaman data produk
+    Route::get('/data_produk', 'index');
 
-// Routing halaman data produk (Harus login)
-Route::get('/data_produk', [ProdukController::class, 'index']);
+    // Routing tambah produk
+    Route::get('/tambah_produk', 'create');
+    Route::post('/tambah_produk', 'store');
 
-// Routing tambah produk (Harus login)
-Route::get('/tambah_produk', [ProdukController::class, 'create']);
-Route::post('/tambah_produk', [ProdukController::class, 'store']);
+    // Routing ubah produk
+    Route::get('/ubah_produk/{id}', 'edit');
+    Route::post('/ubah_produk/{id}', 'update');
 
-// Routing hapus produk (Harus login)
-Route::get('/hapus_produk/{id}', [ProdukController::class, 'destroy']);
+    // Routing hapus produk
+    Route::get('/hapus_produk/{id}', 'destroy');
+});
 
-// Routing ubah produk (Harus login)
-Route::get('/ubah_produk/{id}', [ProdukController::class, 'edit']);
-Route::post('/ubah_produk/{id}', [ProdukController::class, 'update']);
+
+
+Route::controller(suplayerController::class)->group(function () {
+    // Routing halaman data suplayer
+    Route::get('/data_suplayer', 'index');
+
+    // Routing tambah suplayer
+    Route::get('/tambah_suplayer', 'create');
+    Route::post('/tambah_suplayer', 'store');
+
+    // Routing ubah suplayer
+    Route::get('/ubah_suplayer/{id}', 'edit');
+    Route::post('/ubah_suplayer/{id}', 'update');
+
+    // Routing hapus suplayer
+    Route::get('/hapus_suplayer/{id}', 'destroy');
+});
+
+
+Route::controller(laptopController::class)->group(function () {
+    // Routing halaman data laptop
+    Route::get('/data_laptop', 'index');
+
+    // Routing tambah laptop
+    Route::get('/tambah_laptop', 'create');
+    Route::post('/tambah_laptop', 'store');
+
+    // Routing ubah laptop
+    Route::get('/ubah_laptop/{id}', 'edit');
+    Route::post('/ubah_laptop/{id}', 'update');
+
+    // Routing hapus laptop
+    Route::get('/hapus_laptop/{id}', 'destroy');
+});
+
+
+Route::controller(PembeliController::class)->group(function () {
+    // Routing halaman data pembeli
+    Route::get('/data_pembeli', 'index');
+
+    // Routing tambah pembeli
+    Route::get('/tambah_pembeli', 'create');
+    Route::post('/tambah_pembeli', 'store');
+
+    // Routing ubah pembeli
+    Route::get('/ubah_pembeli/{id}', 'edit');
+    Route::post('/ubah_pembeli/{id}', 'update');
+
+    // Routing hapus pembeli
+    Route::get('/hapus_pembeli/{id}', 'destroy');
+});
+
+
+Route::controller(TransaksiController::class)->group(function () {
+    // Routing halaman data transaksi
+    Route::get('/data_transaksi', 'index');
+
+    // Routing tambah transaksi
+    Route::get('/tambah_transaksi', 'create');
+    Route::post('/tambah_transaksi', 'store');
+
+    // Routing ubah transaksi
+    Route::get('/ubah_transaksi/{id}', 'edit');
+    Route::post('/ubah_transaksi/{id}', 'update');
+
+    // Routing hapus transaksi
+    Route::get('/hapus_transaksi/{id}', 'destroy');
+});

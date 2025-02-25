@@ -1,6 +1,6 @@
-@extends('templating_login')
+@extends('templating.templating_login')
 
-@section('judul_halaman', 'Login | Aplikasi Pengelolaan Data Produk')
+@section('judul_halaman', 'Login | Aplikasi DigiStore Manager')
 
 @section('konten')
     <div class="card shadow-lg border-0 rounded-lg mt-5">

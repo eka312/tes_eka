@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\produk;
 
-class produkController extends Controller
+class ProdukController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class produkController extends Controller
     {
         $produk=produk::All();
 
-       return view('/data_produk', ['produk' => $produk]);
+       return view('produk.data_produk', ['produk' => $produk]);
     }
 
     /**
@@ -22,7 +22,7 @@ class produkController extends Controller
      */
     public function create()
     {
-        return view('tambah_produk');
+        return view('produk.tambah_produk');
     }
 
     /**
@@ -56,7 +56,7 @@ class produkController extends Controller
     {
          // untuk mengambil data produk berdasarkan kolom id_produk
          $produk = produk::where('id_produk', $id)->first();
-         return view('ubah_produk',['produk' => $produk]);
+         return view('produk.ubah_produk',['produk' => $produk]);
     }
 
     /**
