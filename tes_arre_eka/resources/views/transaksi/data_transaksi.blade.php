@@ -45,11 +45,11 @@
                             <td>{{$item->nama_laptop}}</td>
                             <td>{{$item->nama_pembeli}}</td>
                             <td>{{$item->jumlah_barang}}</td>
-                            <td>{{$item->bayar}}</td>
-                            <td>{{$item->tggl_beli}}</td>
+                            <td>{{ 'Rp' . number_format($item->bayar, 0, ',', '.') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($item->tggl_beli)->format('d-m-Y') }}</td>
                             <td>{{$item->name}}</td>
                             <td>
-                                <a class="btn btn-warning btn-sm" href="/ubah_transaksi/{{$item->id_transaksi}}" role="button"><i class="fas fa-edit me-2"></i>ubah</a>
+                                <a class="btn btn-warning btn-sm mb-1" href="/ubah_transaksi/{{$item->id_transaksi}}" role="button"><i class="fas fa-edit me-2"></i>ubah</a>
                                 <a class="btn btn-danger btn-sm" href="/hapus_transaksi/{{$item->id_transaksi}}" onclick="return confirm('apakah anda yakin ingin menghapus data ini?');" role="button"><i class="fas fa-trash me-2"></i>Hapus</a>
                             </td>
                         </tr>

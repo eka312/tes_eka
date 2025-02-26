@@ -25,7 +25,7 @@
                     <div class="col-sm-10">
                         <select name="id_laptop" value="{{$transaksi->nama_laptop}}" class="form-select" aria-label="Default select example">
                             @foreach ($laptop as $item)
-                                <option value="{{$item->id_laptop}}">{{$item->nama_laptop}}</option>
+                                <option @if($item->id_laptop==$transaksi->id_laptop) selected @endif value="{{$item->id_laptop}}">{{$item->nama_laptop}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -35,7 +35,7 @@
                     <div class="col-sm-10">
                         <select name="id_pembeli" value="{{$transaksi->nama_pembeli}}" class="form-select" aria-label="Default select example">
                             @foreach ($pembeli as $item)
-                                <option value="{{$item->id_pembeli}}">{{$item->nama_pembeli}}</option>
+                                <option @if($item->id_pembeli==$transaksi->id_pembeli) selected @endif value="{{$item->id_pembeli}}">{{$item->nama_pembeli}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -63,7 +63,7 @@
                     <div class="col-sm-10">
                         <select name="id_user" value="{{$transaksi->name}}" class="form-select" aria-label="Default select example">
                             @foreach ($user as $item)
-                                <option value="{{$item->id_user}}">{{$item->name}}</option>
+                                <option @if($item->id_user==$transaksi->id_user) selected @endif value="{{$item->id_user}}">{{$item->name}}</option>
                             @endforeach
                         </select>
                     </div>

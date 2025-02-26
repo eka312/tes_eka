@@ -46,8 +46,8 @@
                             <td>{{$item->deskripsi}}</td>
                             <td>{{$item->nama_suplayer}}</td>
                             <td>{{$item->stok}}</td>
-                            <td>{{$item->harga_beli}}</td>
-                            <td>{{$item->harga_jual}}</td>
+                            <td>{{ 'Rp' . number_format($item->harga_beli, 0, ',', '.') }}</td>
+                            <td>{{ 'Rp' . number_format($item->harga_jual, 0, ',', '.') }}</td>
                             <td>
                                 <a class="btn btn-warning btn-sm mb-1" href="/ubah_laptop/{{$item->id_laptop}}" role="button"><i class="fas fa-edit me-2"></i>ubah</a>
                                 <a class="btn btn-danger btn-sm" href="/hapus_laptop/{{$item->id_laptop}}" onclick="return confirm('apakah anda yakin ingin menghapus data ini?');" role="button"><i class="fas fa-trash me-2"></i>Hapus</a>

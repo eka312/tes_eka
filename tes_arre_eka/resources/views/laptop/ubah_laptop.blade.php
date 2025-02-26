@@ -37,7 +37,7 @@
                     <div class="col-sm-10">
                         <select name="id_suplayer" value="{{$laptop->nama_suplayer}}" name="deskripsi" class="form-select" aria-label="Default select example">
                             @foreach ($suplayer as $item)
-                                <option value="{{$item->id_suplayer}}">{{$item->nama_suplayer}}</option>
+                                <option @if($item->id_suplayer==$laptop->id_suplayer) selected @endif value="{{$item->id_suplayer}}">{{$item->nama_suplayer}}</option>
                             @endforeach
                         </select>
                     </div>

@@ -30,15 +30,15 @@
                     <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
                     <div class="col-sm-10">
                         <select name="jk" class="form-select" aria-label="Default select example">
-                            <option value="laki-laki">laki-laki</option>
-                            <option value="perempuan">perempuan</option>
+                            <option value="laki-laki" {{ $pembeli->jk == 'laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                            <option value="perempuan" {{ $pembeli->jk == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
                         </select>
                     </div>
                 </div>
                 <div class="mb-4 row">
                     <label for="text" class="col-sm-2 col-form-label">alamat</label>
                     <div class="col-sm-10">
-                        <input name="alamat_pembeli"  value="{{$pembeli->alamat_pembeli}}" class="form-control " type="text" placeholder="Masukkan alamat pembeli" id="text" aria-label=".form-control-lg example">
+                        <input name="alamat_pembeli"   value="{{$pembeli->alamat_pembeli}}" class="form-control " type="text" placeholder="Masukkan alamat pembeli" id="text" aria-label=".form-control-lg example">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Simpan</button>

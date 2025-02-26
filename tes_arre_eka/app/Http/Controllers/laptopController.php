@@ -14,7 +14,7 @@ class laptopController extends Controller
      */
     public function index()
     {
-        $laptop = laptop::join('suplayers', 'laptops.id_laptop', '=', 'suplayers.id_suplayer')
+        $laptop = laptop::join('suplayers', 'laptops.id_suplayer', '=', 'suplayers.id_suplayer')
         ->get();
 
        return view('laptop.data_laptop', ['laptop' => $laptop]);

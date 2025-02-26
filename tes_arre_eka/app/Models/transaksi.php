@@ -12,4 +12,6 @@ class transaksi extends Model
     protected $table = 'transaksis';
     protected $guarded = [];
     public $timestamps = false;
+
+    
 }

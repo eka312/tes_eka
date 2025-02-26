@@ -69,10 +69,6 @@
                                 Beranda
                             </a>
                             @auth
-                                <a class="nav-link" href="/data_produk">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                    data produk
-                                </a>
                                 <a class="nav-link" href="/data_suplayer">
                                     <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
                                     data suplayer

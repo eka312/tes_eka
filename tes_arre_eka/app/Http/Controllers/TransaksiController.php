@@ -24,6 +24,7 @@ class TransaksiController extends Controller
         ->get();
 
        return view('transaksi.data_transaksi', ['transaksi' => $transaksi]);
+
     }
 
     /**
@@ -52,14 +53,6 @@ class TransaksiController extends Controller
         ]);
         
 
-        // $request->validate([
-        //     'id_laptop' => 'required|exists:laptops,id_laptop',
-        //     'id_pembeli' => 'required|exists:pembelis,id_pembeli',
-        //     'jumlah_barang' => 'required|integer|min:1',
-        //     'bayar' => 'required|numeric|min:0',
-        //     'tggl_beli' => 'required|date',
-        //     'id_user' => 'required|exists:users,id_user',
-        // ]);
         return redirect('/data_transaksi');
     }
 
@@ -111,4 +104,6 @@ class TransaksiController extends Controller
         //setelah terhapus akan dialihkan ke hal data transaksi
         return redirect('/data_transaksi');
     }
+
+    
 }

@@ -4,7 +4,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\suplayerController;
 use App\Http\Controllers\laptopController;
@@ -34,7 +33,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.submit');
 
 // Routing halaman logout
-Route::post('/logout', function () {
+Route::get('/logout', function () {
     auth()->logout();
     request()->session()->invalidate();
     request()->session()->regenerateToken();
@@ -50,23 +49,6 @@ Route::controller(TemplateController::class)->group(function () {
     Route::get('/master', 'master');
     // Routing halaman beranda
     Route::get('/', 'index');
-});
-
-
-Route::controller(ProdukController::class)->group(function () {
-    // Routing halaman data produk
-    Route::get('/data_produk', 'index');
-
-    // Routing tambah produk
-    Route::get('/tambah_produk', 'create');
-    Route::post('/tambah_produk', 'store');
-
-    // Routing ubah produk
-    Route::get('/ubah_produk/{id}', 'edit');
-    Route::post('/ubah_produk/{id}', 'update');
-
-    // Routing hapus produk
-    Route::get('/hapus_produk/{id}', 'destroy');
 });
 
 
