@@ -34,11 +34,11 @@ Route::post('/login', [LoginController::class, 'authenticate'])->name('login.sub
 
 // Routing halaman logout
 Route::get('/logout', function () {
-    auth()->logout();
+    Auth::logout();
     request()->session()->invalidate();
     request()->session()->regenerateToken();
     return redirect('/');
-})->name('logout')->middleware('auth');
+})->name('logout');
 
 
  

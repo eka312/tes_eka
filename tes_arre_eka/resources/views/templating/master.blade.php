@@ -45,14 +45,10 @@
                             <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
                             <li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    Logout
-                                </a>
-                            </li>
+                            <a class="dropdown-item" href="{{ route('logout') }}">
+                                Logout
+                            </a>
+
                         @endguest
                     </ul>
                 </li>
@@ -112,10 +108,31 @@
 	                    @yield('konten')
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto text-capitalize">
-                    <div class="container-fluid px-4">
+                <footer class="py-4 bg-primary mt-auto ">
+                    <div class="container-fluid px-5" >
+                        <div class="row text-light gap-3">
+                            <div class="col">
+                                <h6>Tentang</h6>
+                                <p class="small"><strong>DIGISTORE MANAGER</strong> DigiStore Manager adalah aplikasi manajemen data laptop yang 
+                                memudahkan pencatatan nama, spesifikasi, stok, dan harga produk. Dengan fitur pemantauan ketersediaan barang 
+                                secara real-time serta pengelolaan transaksi yang efisien, aplikasi ini membantu pemilik toko dalam mengontrol 
+                                inventaris dan mencatat penjualan dengan lebih akurat.
+                                </p>
+                                <h6>HUBUNGI KAMI</h6>
+                                <h8>Klik : </h8>
+                                  <a href="https://wa.me/085932512828" target="_blank" style="text-decoration: none; margin: 0 10px;">
+                                      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="40" alt="WhatsApp">
+                                  </a>
+                                  <a href="https://www.instagram.com/silviaeka312" target="_blank" style="text-decoration: none; margin: 0 10px;">
+                                      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" width="40" alt="Instagram">
+                                  </a>
+                            </div>
+                            <div class="col">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.168755049892!2d112.31908827412548!3d-8.08426608082519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7893ebbab3e161%3A0xa8678f8ba8253eb4!2sSMK%20PGRI%20Wlingi!5e0!3m2!1sid!2sid!4v1741225955946!5m2!1sid!2sid" width="500" height="220" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; DigiStore Manager 2025</div>
+                            <div class="text-light">Copyright &copy;DigiStore Manager 2025</div>
                         </div>
                     </div>
                 </footer>
