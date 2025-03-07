@@ -42,15 +42,22 @@
                     @foreach ($transaksi as $item)
                         <tr>
                             <th scope="row">{{$loop->iteration}}</th>
-                            <td>{{$item->nama_laptop}}</td>
-                            <td>{{$item->nama_pembeli}}</td>
+                            <td>{{$item->laptop->nama_laptop}}</td>
+                            <td>{{$item->pembeli->nama_pembeli}}</td>
                             <td>{{$item->jumlah_barang}}</td>
                             <td>{{ 'Rp' . number_format($item->bayar, 0, ',', '.') }}</td>
                             <td>{{ \Carbon\Carbon::parse($item->tggl_beli)->format('d-m-Y') }}</td>
-                            <td>{{$item->name}}</td>
+                            <td>{{$item->user->name}}</td>
                             <td>
                                 <a class="btn btn-warning btn-sm mb-1" href="/ubah_transaksi/{{$item->id_transaksi}}" role="button"><i class="fas fa-edit me-2"></i>ubah</a>
-                                <a class="btn btn-danger btn-sm" href="/hapus_transaksi/{{$item->id_transaksi}}" onclick="return confirm('apakah anda yakin ingin menghapus data ini?');" role="button"><i class="fas fa-trash me-2"></i>Hapus</a>
+                                <form action="{{ route('transaksi.destroy', $item->id_transaksi) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a role="button" class="btn btn-danger btn-sm" type="submit" onclick="return confirm('Yakin ingin menghapus transaksi ini?')">
+                                        <i class="fas fa-trash me-2"></i>Hapus
+                                    </a>
+                                </form>
+
                             </td>
                         </tr>
                     @endforeach

@@ -110,12 +110,12 @@ Route::controller(TransaksiController::class)->group(function () {
 
     // Routing tambah transaksi
     Route::get('/tambah_transaksi', 'create');
-    Route::post('/tambah_transaksi', 'store');
+    Route::post('/tambah_transaksi', 'store')->name('transaksi.store');
 
     // Routing ubah transaksi
     Route::get('/ubah_transaksi/{id}', 'edit');
-    Route::post('/ubah_transaksi/{id}', 'update');
+    Route::put('/ubah_transaksi/{id}', 'update')->name('transaksi.update');
 
     // Routing hapus transaksi
-    Route::get('/hapus_transaksi/{id}', 'destroy');
+    Route::delete('/hapus_transaksi/{id}', 'destroy')->name('transaksi.destroy');
 });

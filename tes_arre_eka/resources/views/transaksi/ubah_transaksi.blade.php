@@ -18,14 +18,18 @@
             ubah daftar data transaksi
         </div>
         <div class="card-body text-capitalize">
-            <form action="/ubah_transaksi/{{$transaksi->id_transaksi}}" method="post" >
+            <form action="{{ route('transaksi.update', $transaksi->id_transaksi) }}" method="post" >
                 @csrf
+                @method('PUT')
                 <div class="mb-4 row">
                     <label class="col-sm-2 col-form-label">laptop</label>
                     <div class="col-sm-10">
-                        <select name="id_laptop" value="{{$transaksi->nama_laptop}}" class="form-select" aria-label="Default select example">
-                            @foreach ($laptop as $item)
-                                <option @if($item->id_laptop==$transaksi->id_laptop) selected @endif value="{{$item->id_laptop}}">{{$item->nama_laptop}}</option>
+                        <select name="id_laptop" class="form-select" aria-label="Default select example">
+                            @foreach ($laptop as $item) 
+                                <option value="{{ $item->id_laptop }}" 
+                                    {{ $item->id_laptop == $transaksi->id_laptop ? 'selected' : '' }}>
+                                    {{ $item->nama_laptop }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -33,9 +37,12 @@
                 <div class="mb-4 row">
                     <label class="col-sm-2 col-form-label">pembeli</label>
                     <div class="col-sm-10">
-                        <select name="id_pembeli" value="{{$transaksi->nama_pembeli}}" class="form-select" aria-label="Default select example">
-                            @foreach ($pembeli as $item)
-                                <option @if($item->id_pembeli==$transaksi->id_pembeli) selected @endif value="{{$item->id_pembeli}}">{{$item->nama_pembeli}}</option>
+                        <select name="id_pembeli" class="form-select" aria-label="Default select example">
+                            @foreach ($pembeli as $item) 
+                                <option value="{{ $item->id_pembeli }}" 
+                                    {{ $item->id_pembeli == $transaksi->id_pembeli ? 'selected' : '' }}>
+                                    {{ $item->nama_pembeli }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -61,9 +68,12 @@
                 <div class="mb-4 row">
                     <label class="col-sm-2 col-form-label">penjual</label>
                     <div class="col-sm-10">
-                        <select name="id_user" value="{{$transaksi->name}}" class="form-select" aria-label="Default select example">
-                            @foreach ($user as $item)
-                                <option @if($item->id_user==$transaksi->id_user) selected @endif value="{{$item->id_user}}">{{$item->name}}</option>
+                        <select name="id_user" class="form-select" aria-label="Default select example">
+                            @foreach ($user as $item) 
+                                <option value="{{ $item->id_user }}" 
+                                    {{ $item->id_user == $transaksi->id_user ? 'selected' : '' }}>
+                                    {{ $item->name }}
+                                </option>
                             @endforeach
                         </select>
                     </div>

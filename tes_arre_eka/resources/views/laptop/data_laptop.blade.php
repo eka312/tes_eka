@@ -44,7 +44,7 @@
                             <th scope="row">{{$loop->iteration}}</th>
                             <td>{{$item->nama_laptop}}</td>
                             <td>{{$item->deskripsi}}</td>
-                            <td>{{$item->nama_suplayer}}</td>
+                            <td>{{$item->suplayer->nama_suplayer}}</td>
                             <td>{{$item->stok}}</td>
                             <td>{{ 'Rp' . number_format($item->harga_beli, 0, ',', '.') }}</td>
                             <td>{{ 'Rp' . number_format($item->harga_jual, 0, ',', '.') }}</td>
