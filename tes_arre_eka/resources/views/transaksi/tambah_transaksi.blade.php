@@ -18,14 +18,14 @@
             tambah daftar data transaksi
         </div>
         <div class="card-body text-capitalize">
-            <form action="/tambah_transaksi" method="post" >
+            <form action="{{ route('transaksi.store') }}" method="post" >
                 @csrf
                 <div class="mb-4 row">
                     <label class="col-sm-2 col-form-label">laptop</label>
                     <div class="col-sm-10">
                         <select name="id_laptop" class="form-select" aria-label="Default select example">
-                            @foreach ($laptop as $item)
-                                <option value="{{$item->id_laptop}}">{{$item->nama_laptop}}</option>
+                            @foreach($laptop as $item)
+                                <option value="{{ $item->id_laptop }}">{{ $item->nama_laptop }}</option>
                             @endforeach
                         </select>
                     </div>

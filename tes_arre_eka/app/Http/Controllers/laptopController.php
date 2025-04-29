@@ -14,10 +14,9 @@ class laptopController extends Controller
      */
     public function index()
     {
-        $laptop = laptop::join('suplayers', 'laptops.id_suplayer', '=', 'suplayers.id_suplayer')
-        ->get();
+        $laptop = laptop::with(['laptop', 'suplayer',])->get();
 
-       return view('laptop.data_laptop', ['laptop' => $laptop]);
+       return view('laptop.data_laptop', compact('laptop'));
     }
 
     /**
@@ -26,7 +25,7 @@ class laptopController extends Controller
     public function create()
     {   
         $suplayer = suplayer::All();
-        return view('laptop.tambah_laptop', ['suplayer' => $suplayer]);
+        return view('laptop.tambah_laptop', compact('suplayer'));
     }
 
     /**
@@ -61,7 +60,7 @@ class laptopController extends Controller
          // untuk mengambil data laptop berdasarkan kolom id_laptop
          $laptop = laptop::where('id_laptop', $id)->first();
          $suplayer=suplayer::All();
-         return view('laptop.ubah_laptop',['laptop' => $laptop,'suplayer' => $suplayer]);
+         return view('laptop.ubah_laptop',compact('laptop','suplayer'));
     }
 
     /**

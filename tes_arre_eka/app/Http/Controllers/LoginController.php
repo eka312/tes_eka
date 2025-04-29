@@ -36,7 +36,4 @@ class LoginController extends Controller
             'email' => 'Kredensial yang diberikan tidak cocok dengan data kami.',
         ])->onlyInput('email');
     }
-    
-    
-
 }

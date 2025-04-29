@@ -14,7 +14,7 @@ class suplayerController extends Controller
     {
         $suplayer=suplayer::All();
 
-       return view('suplayer.data_suplayer', ['suplayer' => $suplayer]);
+       return view('suplayer.data_suplayer', compact('suplayer'));
     }
 
     /**
@@ -52,7 +52,7 @@ class suplayerController extends Controller
     {
          // untuk mengambil data suplayer berdasarkan kolom id_suplayer
          $suplayer = suplayer::where('id_suplayer', $id)->first();
-         return view('suplayer.ubah_suplayer',['suplayer' => $suplayer]);
+         return view('suplayer.ubah_suplayer',compact('suplayer'));
     }
 
     /**

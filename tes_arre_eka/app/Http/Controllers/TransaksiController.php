@@ -16,14 +16,9 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        $transaksi = DB::table('transaksis')
-        ->join('laptops', 'transaksis.id_laptop', '=', 'laptops.id_laptop')
-        ->join('pembelis', 'transaksis.id_pembeli', '=', 'pembelis.id_pembeli')
-        ->join('users', 'transaksis.id_user', '=', 'users.id_user')
-        ->select('transaksis.*', 'laptops.nama_laptop', 'pembelis.nama_pembeli', 'users.name')
-        ->get();
+        $transaksi = transaksi::with(['laptop', 'pembeli', 'user'])->get();
 
-       return view('transaksi.data_transaksi', ['transaksi' => $transaksi]);
+        return view('transaksi.data_transaksi', compact('transaksi'));
 
     }
 
@@ -35,7 +30,7 @@ class TransaksiController extends Controller
         $laptop=laptop::All();
         $pembeli=pembeli::All();
         $user=User::All();
-        return view('transaksi.tambah_transaksi', ['laptop' => $laptop,'pembeli' => $pembeli,'user' => $user]);
+        return view('transaksi.tambah_transaksi', compact('laptop', 'pembeli', 'user'));
     }
 
     /**
@@ -43,7 +38,27 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        $transaksi = transaksi::create([
+        // Validasi input sebelum menyimpan transaksi
+        $request->validate([
+            'id_laptop' => 'required|exists:laptops,id_laptop',
+            'jumlah_barang' => 'required|integer|min:1',
+        ]);
+
+        // Ambil data laptop berdasarkan ID
+        $laptop = laptop::where('id_laptop', $request->id_laptop)->firstOrFail();
+
+
+        // Cek apakah stok mencukupi
+        if ($laptop->stok < $request->jumlah_barang) {
+            return back()->with('error', 'Stok tidak mencukupi!');
+        }
+
+        // Kurangi stok laptop
+        $laptop->stok -= $request->jumlah_barang;
+        $laptop->save();
+
+        // Simpan transaksi setelah stok diperbarui
+        transaksi::create([
             'id_laptop' => $request->id_laptop,
             'id_pembeli' => $request->id_pembeli,
             'jumlah_barang' => $request->jumlah_barang,
@@ -51,7 +66,6 @@ class TransaksiController extends Controller
             'tggl_beli' => $request->tggl_beli,
             'id_user' => $request->id_user,
         ]);
-        
 
         return redirect('/data_transaksi');
     }
@@ -69,12 +83,15 @@ class TransaksiController extends Controller
      */
     public function edit(string $id)
     {
-        // untuk mengambil data transaksi berdasarkan kolom id_transaksi
-        $transaksi = transaksi::where('id_transaksi', $id)->first();
-        $laptop=laptop::All();
-        $pembeli=pembeli::All();
-        $user=User::All();
-        return view('transaksi.ubah_transaksi',['transaksi' => $transaksi,'laptop' => $laptop,'pembeli' => $pembeli,'user' => $user]);
+        // Ambil data transaksi berdasarkan id_transaksi
+        $transaksi = transaksi::where('id_transaksi', $id)->firstOrFail();
+        
+        // Ambil semua data terkait
+        $laptop = laptop::all();
+        $pembeli = pembeli::all();
+        $user = User::all();
+
+        return view('transaksi.ubah_transaksi', compact('transaksi', 'laptop', 'pembeli', 'user'));
     }
 
     /**
@@ -82,8 +99,34 @@ class TransaksiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        transaksi::where('id_transaksi', $id)
-        ->update([
+         // Validasi input
+        $request->validate([
+            'id_laptop' => 'required|exists:laptops,id_laptop',
+            'id_pembeli' => 'required|exists:pembelis,id_pembeli',
+            'id_user' => 'required|exists:users,id_user',
+            'jumlah_barang' => 'required|integer|min:1',
+            'bayar' => 'required|numeric|min:0',
+            'tggl_beli' => 'required|date',
+        ]);
+
+        // Ambil data transaksi lama
+        $transaksi = transaksi::where('id_transaksi', $id)->firstOrFail();
+        $laptop = laptop::where('id_laptop', $request->id_laptop)->firstOrFail();
+
+        // Kembalikan stok laptop sebelumnya
+        $laptop->stok += $transaksi->jumlah_barang;
+
+        // Cek apakah stok cukup untuk perubahan jumlah barang
+        if ($laptop->stok < $request->jumlah_barang) {
+            return back()->with('error', 'Stok tidak mencukupi untuk perubahan ini!');
+        }
+
+        // Kurangi stok dengan jumlah baru
+        $laptop->stok -= $request->jumlah_barang;
+        $laptop->save();
+
+        // Update transaksi
+        $transaksi->update([
             'id_laptop' => $request->id_laptop,
             'id_pembeli' => $request->id_pembeli,
             'jumlah_barang' => $request->jumlah_barang,
@@ -91,6 +134,7 @@ class TransaksiController extends Controller
             'tggl_beli' => $request->tggl_beli,
             'id_user' => $request->id_user,
         ]);
+
         return redirect('/data_transaksi');
     }
 
@@ -99,10 +143,11 @@ class TransaksiController extends Controller
      */
     public function destroy(string $id)
     {
-        $delete = transaksi::where('id_transaksi', $id)->delete();
+        $$transaksi = transaksi::findOrFail($id);
+        $transaksi->delete();
         
         //setelah terhapus akan dialihkan ke hal data transaksi
-        return redirect('/data_transaksi');
+        return redirect()->route('transaksi.index');
     }
 
     

@@ -13,7 +13,7 @@ class PembeliController extends Controller
     public function index()
     {
         $pembeli=pembeli::All();
-        return view('pembeli.data_pembeli', ['pembeli' => $pembeli]);
+        return view('pembeli.data_pembeli', compact('pembeli'));
     }
 
     /**
@@ -52,7 +52,7 @@ class PembeliController extends Controller
     {
          // untuk mengambil data pembeli berdasarkan kolom id_pembeli
          $pembeli = pembeli::where('id_pembeli', $id)->first();
-         return view('pembeli.ubah_pembeli',['pembeli' => $pembeli]);
+         return view('pembeli.ubah_pembeli',compact('pembeli'));
     }
 
     /**
